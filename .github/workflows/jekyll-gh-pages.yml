@@ -22,19 +22,18 @@ jobs:
       - name: 📦 Install Dependencies
         run: npm install
 
+      - name: 🧪 Echo Environment Variables
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+          PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
+          PORT: ${{ env.PORT }}
+        run: echo "Hello $DISCORD_TOKEN . $PORT"
+
       - name: 🚀 Run Bot
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          GUILD_ID: ${{ env.GUILD_ID }}
-          PROMPT_CHANNEL_ID: ${{ env.PROMPT_CHANNEL_ID }}
-          PORT: 3000
-
-        run: echo "Hello $DISCORD_TOKEN . $PORT. Using Java Version $JAVA_VERSION"
-      - name: 🚀 Run Bot
-        env:
-          DISCORD_TOKEN: ${{ env.DISCORD_TOKEN }}
-          GUILD_ID: ${{ env.GUILD_ID }}
-          PROMPT_CHANNEL_ID: ${{ env.PROMPT_CHANNEL_ID }}
-          PORT: 3000
-
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+          PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
+          PORT: ${{ env.PORT }}
         run: npm run start
