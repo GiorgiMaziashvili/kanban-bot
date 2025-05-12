@@ -1,9 +1,7 @@
 const restricted = [
     'to-do',
-    'in-progress',
-    'done',
     'test',
-    'fixed',
+    'done',
   ];
   
   module.exports = (client) => {
