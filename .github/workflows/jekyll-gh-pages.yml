@@ -7,33 +7,31 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  run-bot:
     runs-on: ubuntu-latest
 
+    env:
+      DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+      GUILD_ID: ${{ secrets.GUILD_ID }}
+      PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
+      PORT: 3000
+
     steps:
-      - name: 📥 Checkout Repository
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🔧 Setup Node.js
+      - name: 🔧 Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🧪 Echo Environment Variables
-        env:
-          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          GUILD_ID: ${{ secrets.GUILD_ID }}
-          PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
-          PORT: 3000
-        run: echo "Hello $DISCORD_TOKEN . $PORT"
+      - name: 🧪 Confirm secrets passed
+        run: |
+          echo "DISCORD_TOKEN is set: ${DISCORD_TOKEN:0:5}..."  # partial reveal
+          echo "PORT is: $PORT"
 
-      - name: 🚀 Run Bot
-        env:
-          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          GUILD_ID: ${{ secrets.GUILD_ID }}
-          PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
-          PORT: 3000
+      - name: 🚀 Run the bot
         run: npm run start
