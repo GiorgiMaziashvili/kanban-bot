@@ -15,7 +15,7 @@ const teamMap = {
 
 module.exports = (client) => {
   client.on('messageCreate', async (message) => {
-    if(message.content.includes('yle') && message.author.id !== client.user.id){
+    if((message.content.includes('yle') || message.content.includes('ყლე')) && message.author.id !== client.user.id){
       const promptChannel = message.guild.channels.cache.find(c =>
         c.id === message.channelId
       );
