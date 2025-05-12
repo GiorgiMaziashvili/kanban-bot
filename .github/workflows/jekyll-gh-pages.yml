@@ -1,4 +1,3 @@
-# .github/workflows/discord-bot.yml
 name: Discord Bot CI
 
 on:
@@ -12,21 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install Dependencies
+      - name: 📦 Install Dependencies
         run: npm install
 
-      - name: Run Bot (test launch)
-        run: npm run start
-
+      - name: 🚀 Run Bot
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}
           PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
+          PORT: 3000
+        run: npm run start
