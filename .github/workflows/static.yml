@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+      DISCORD_TOKEN: ${{ env.DISCORD_TOKEN }}
       GUILD_ID: ${{ secrets.GUILD_ID }}
       PROMPT_CHANNEL_ID: ${{ secrets.PROMPT_CHANNEL_ID }}
       PORT: 3000
