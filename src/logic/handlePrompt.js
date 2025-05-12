@@ -15,6 +15,13 @@ const teamMap = {
 
 module.exports = (client) => {
   client.on('messageCreate', async (message) => {
+    if(message.content.includes('yle') && message.author.id !== client.user.id){
+      const promptChannel = message.guild.channels.cache.find(c =>
+        c.id === message.channelId
+      );
+      promptChannel.send(`აქ ყლე არავინაა 🍆, \n <@${message.author.id}>`)
+    }
+    
     if (message.channel.id !== process.env.PROMPT_CHANNEL_ID) return;
     if (message.author.bot) return;
 
@@ -33,7 +40,7 @@ module.exports = (client) => {
         c.name === 'to-do' &&
         c.parent?.name.toLowerCase().includes(teamKey)
       );
-
+      
       if (!toDoChannel) continue;
 
       const embed = new EmbedBuilder()
@@ -54,6 +61,8 @@ module.exports = (client) => {
         if (emoji === emojiMap.TODO) continue; // don't re-add TODO
         await sent.react(emoji);
       }
+
+      
     }
   });
 };
