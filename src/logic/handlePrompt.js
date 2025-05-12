@@ -1,12 +1,10 @@
 const { EmbedBuilder } = require('discord.js');
 
 const emojiMap = {
-  TODO: '🟨',
-  INPROGRESS: '🔄',
-  DONE: '✅',
-  TEST: '🧪',
-  FIXED: '🛠️',
-  DELETE: '🗑️',
+  TODO: '📋',    
+  TEST: '🔍',    
+  DONE: '✅',    
+  DELETE: '❌', 
 };
 
 const teamMap = {

@@ -1,11 +1,9 @@
 const { EmbedBuilder } = require('discord.js');
 
 const emojiToChannel = {
-  '🟨': 'to-do',
-  '🔄': 'in-progress',
+  '📋': 'to-do',
+  '🔍': 'test',
   '✅': 'done',
-  '🧪': 'test',
-  '🛠️': 'fixed',
 };
 
 const statusColors = {

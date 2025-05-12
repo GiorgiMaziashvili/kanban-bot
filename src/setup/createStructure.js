@@ -8,10 +8,8 @@ const teams = [
 
 const subChannels = [
   'to-do',
-  'in-progress',
-  'done',
   'test',
-  'fixed',
+  'done',
 ];
 
 async function createKanbanStructure(guild) {
