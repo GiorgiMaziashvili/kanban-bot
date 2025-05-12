@@ -24,12 +24,12 @@ jobs:
 
       - name: 🚀 Run Bot
         env:
-          DISCORD_TOKEN: ${{ env.DISCORD_TOKEN }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           GUILD_ID: ${{ env.GUILD_ID }}
           PROMPT_CHANNEL_ID: ${{ env.PROMPT_CHANNEL_ID }}
           PORT: 3000
 
-        run: echo "Hello $DISCORD_TOKEN. $GUILD_ID. Using Java Version $JAVA_VERSION"
+        run: echo "Hello $DISCORD_TOKEN . $PORT. Using Java Version $JAVA_VERSION"
       - name: 🚀 Run Bot
         env:
           DISCORD_TOKEN: ${{ env.DISCORD_TOKEN }}
