@@ -9,7 +9,7 @@ on:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-
+    environment: discord-bot-env
     env:
       DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
       GUILD_ID: ${{ secrets.GUILD_ID }}
